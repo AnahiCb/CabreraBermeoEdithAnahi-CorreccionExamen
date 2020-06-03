@@ -29,12 +29,11 @@ public class Principal {
         control.registrarLavadora();
         control.registrarLavadora();
         control.registrarLavadora();
+        control.verLavadoras();
         //Ingreso de tres objetos tipo Television
         control.registrarTelevision();
         control.registrarTelevision();
         control.registrarTelevision();
-        // Listado de los objetos
-        control.verLavadoras();
         control.verTelevisiones();
         
         

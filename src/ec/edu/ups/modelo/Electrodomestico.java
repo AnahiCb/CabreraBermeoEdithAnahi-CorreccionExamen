@@ -101,6 +101,7 @@ public class Electrodomestico implements Comparable <Electrodomestico>{
         double precioFinal= precioBase+precioBase1;
         return precioFinal;
     }
+    @Override
     public int compareTo(Electrodomestico p) {       
        
         return (int) (this.precioBase-p.precioBase);

@@ -13,19 +13,19 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Iterator;
-import java.util.Set;
+import java.util.*;
 
 /**
  *
  * @author Anahi
  */
 public class ElectrodomesticoDAO implements IElectrodomesticoDAO {
-    private Set<Electrodomestico> listaElectrodomestico;
+    private SortedSet<Electrodomestico> listaElectrodomestico;
     private List<Lavadora> listLavadora;
     private List<Television> listTele;
 
     public ElectrodomesticoDAO() {
-        listaElectrodomestico = new HashSet<Electrodomestico>();
+        listaElectrodomestico = new TreeSet<Electrodomestico>();
         listTele = new ArrayList<>();
         listLavadora = new ArrayList<>();
     }
@@ -41,6 +41,7 @@ public class ElectrodomesticoDAO implements IElectrodomesticoDAO {
     }
     @Override
     public List<Lavadora> listarLavadora(){
+        
        Iterator<Electrodomestico> it = listaElectrodomestico.iterator();
         
         while (it.hasNext()) {
@@ -49,19 +50,7 @@ public class ElectrodomesticoDAO implements IElectrodomesticoDAO {
                 Lavadora lavadora = (Lavadora) electro;
                 listLavadora.add(lavadora);
             }
-        }
-        
-        for(int i=0;i<(listLavadora.size()-1);i++){
-            
-            for(int j = 0;j<listLavadora.size();j++){
-                if(listLavadora.get(i).compareTo(listLavadora.get(j))>0){
-                    Lavadora lav = listLavadora.get(i);
-                    listLavadora.add(i, listLavadora.get(j));
-                    listLavadora.add(j, lav);
-                }
-            }
-        }
-        
+        }      
         return listLavadora;
     }
     @Override
@@ -74,19 +63,7 @@ public class ElectrodomesticoDAO implements IElectrodomesticoDAO {
                 Television television = (Television) e;
                 listTele.add(television);
             }
-        }
-        
-        for(int c=0;c<(listTele.size()-1);c++){
-            
-            for(int j = 0;j<listTele.size();j++){
-                if(listTele.get(c).compareTo(listTele.get(j))>0){
-                    Television tele = listTele.get(c);
-                    listTele.add(c, listTele.get(j));
-                    listTele.add(j, tele);
-                }
-            }
-        }
-        
+        } 
         return listTele;
     }
 }
